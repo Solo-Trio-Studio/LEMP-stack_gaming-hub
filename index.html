@@ -1,57 +1,29 @@
-<head>
-  <title>Data Interpretation</title>
-</head>
-<body>
-  <p id="description">Enter a number between 1 and 10 for each field</p>
-  <form>
-    <label for="a">functions_industries_services</label><br>
-    <input type="number" id="a" name="a" value=""><br>
-    <label for="b">skills_abilities</label><br>
-    <input type="number" id="b" name="b" value=""><br>
-    <label for="c">hobbies</label><br>
-    <input type="number" id="c" name="c" value=""><br>
-    <label for="d">cultures_languages</label><br>
-    <input type="number" id="d" name="d" value=""><br>
-    <label for="e">enneagram_MBTI_temperaments_DISC_derestyles_jungians</label><br>
-    <input type="number" id="e" name="e" value=""><br>
-    <label for="f">brainwaves</label><br>
-    <input type="number" id="f" name="f" value=""><br>
-    <label for="g">fengshui</label><br>
-    <input type="number" id="g" name="g" value=""><br>
-    <label for="h">causes</label><br>
-    <input type="number" id="h" name="h" value=""><br>
-    <label for="i">philosophies</label><br>
-    <input type="number" id="i" name="i" value=""><br>
-    <label for="j">scholarship</label><br>
-    <input type="number" id="j" name="j" value=""><br>
-    <label for="k">polichemicalcores</label><br>
-    <input type="number" id="k" name="k" value=""><br>
-    <label for="l">processsteps</label><br>
-    <input type="number" id="l" name="l" value=""><br>
-    <label for="m">diagramlayers</label><br>
-    <input type="number" id="m" name="m" value=""><br>
-    <label for="n">softwareparadigms</label><br>
-    <input type="number" id="n" name="n" value=""><br>
-    <label for="o">interrogatives</label><br>
-    <input type="number" id="o" name="o" value=""><br>
-    <label for="p">shapes</label><br>
-    <input type="number" id="p" name="p" value=""><br>
-    <label for="q">buildings</label><br>
-    <input type="number" id="q" name="q" value=""><br>
-    <label for="r">clothing</label><br>
-    <input type="number" id="r" name="r" value=""><br>
-    <label for="s">literature_music_games</label><br>
-    <input type="number" id="s" name="s" value=""><br>
-    <button type="submit">Sumbit</button>
-  </form>
-</body>
+<a class="active" href="index.templ">Home</a>
+<a href="pages/p1.templ">Pathfinder 1e</a>
+<a href="pages/s2.templ">Starfinder 2e</a>
 
+<h1 class="display-4">Gaming Hub</h1>
+<p class="lead">Pathfinder 1e Base Spelunker, Generic RPG Fusion, Legendary Starfinder 2e. Reccomended artists while playing are Hot Chip, Michael Jackson, Dream Theater, Amp Live, Digitalism, Van Halen, etc.</p>
+<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
 <script>
-  const labels = 'abcdefghijklmnopqrs'.split('');
-  values = [0.0, 0.0, 0.0, 0.0, 0.0];
-  for(i=0; i<labels.length; i++) {
-    next = parseDouble(document.getElementById("labels[i]"));
-    values[Math.ceil(next/5)] += 0.5;
-    document.getElementById("description").innerHTML = values.toString();
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setAnimationLoop( animate );
+  document.body.appendChild( renderer.domElement );
+  
+  const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+  const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+  const cube = new THREE.Mesh( geometry, material );
+  scene.add( cube );
+  
+  camera.position.z = 5;
+  
+  function animate() {
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render( scene, camera );
   }
 </script>
